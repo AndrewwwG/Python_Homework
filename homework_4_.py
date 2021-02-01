@@ -71,8 +71,12 @@ for index in range(len(my_list_3)):
 ########################################
 ##7
 
-my_string_1 = "0123456789"
-my_string_2 = "0123456789"
-for symb_1 in my_string_1:
-    for symb_2 in my_string_2:
-        print(symb_1 + symb_2)
+my_string = '0123456789'
+my_list = []
+my_result = []
+for symb_1 in my_string:
+    for symb_2 in my_string:
+        my_result = int(symb_1 + symb_2)
+        my_list.append(my_result)
+print(my_list)
+
