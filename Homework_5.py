@@ -60,7 +60,8 @@ print(new_list)
 ##5
 
 my_list = [1, 2, 3, 4]
-my_list = my_list[1:] + [my_list.pop(0)]
+my_list.append(my_list[0])
+my_list.pop(0)
 print(my_list)
 
 
@@ -69,10 +70,14 @@ print(my_list)
 
 ##6
 
-import re
 my_str = "43 больше чем 34 но меньше чем 56"
-sum_of_numbers = sum(map(int, re.findall('(\d+)', my_str)))
-print(sum_of_numbers)
+numbers_sum = []
+for word in my_str.split():
+    try:
+        numbers_sum.append(int(word))
+    except ValueError:
+        pass
+print(sum(numbers_sum))
 
 
 #########################################
@@ -80,10 +85,10 @@ print(sum_of_numbers)
 
 ##7
 
-import re
-my_str ='abcde'
+my_str ='abcdedd'
 my_str += '_' * (len(my_str) % 2)
-print(re.findall('.{%s}' % 2, my_str))
+for index in range(len(my_str)//2):
+    print([my_str[index * 2: index * 2 + 2]])
 
 
 #########################################
