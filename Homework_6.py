@@ -49,9 +49,13 @@ print(str_list)
 ##5
 
 my_str = 'wertyuihgfdscvjkiuytdsaxcmp'
-set_my_str = set(my_str)
-new_str = ','.join([i for i in set_my_str if my_str.count(i) == 1])
-print(new_str)
+my_result = []
+
+for symbol in my_str:
+    if my_str.count(symbol) == 1:
+        my_result.append(symbol)
+
+print(my_result)
 
 
 ######################################################################
@@ -72,13 +76,14 @@ print(my_result)
 
 my_str_1 = "Qwjfhdcoijdsovijktbwsfjvszpl"
 my_str_2 = "Fjdbndobjsvlsvsdjdvjsvpm"
-my_result= []
-for i in my_str_1:
-    k = my_str_1.find(i) - my_str_1.rfind(i)
-    if k == 0:
-        if i in my_str_2 and my_str_2.find(i) - my_str_2.rfind(i) == 0:
-            my_result.append(i)
-            print(i)
+set_my_str_1 = set(my_str_1)
+set_my_str_2 = set(my_str_2)
+result = []
+
+for symbol in set_my_str_1.intersection(set_my_str_2):
+    if my_str_1.count(symbol) == 1 and my_str_2.count(symbol) == 1:
+        result.append(symbol)
+print(result)
 
 
 ######################################################################
@@ -114,7 +119,6 @@ cake = { "Коржи":  {"Мука": "222gr",
                     "Масло": "111gr"}}
 
 print(cake["Крем"])
-
 
 
 
