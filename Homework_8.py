@@ -1,65 +1,72 @@
+import random as randint
+import string
+min = 100
+max = 1000
+
 
 ##1
 
-from random import randint
-
-import random
 names = ["king", "ivan", "assasin", "harry"]
-random_number = random.randint(100, 1000)
-random_word = ''.join(chr(randint(ord('a'), ord('z'))) for j in range(randint(5, 7)))
 domains = ["com", "ua", "de", "uk", "es"]
-e_mail = random.choice(names) + "." + str(random_number) + "@" + str(random_word) + "." + random.choice(domains)
+len_of_str = randint.randint(5, 7)
+
+def create_str():
+    str_letters = string.ascii_lowercase
+    random_str = ''.join(randint.choice(str_letters) for i in range(len_of_str))
+    return random_str
+
+def create_email(names,domains):
+    my_email = f'{names[randint.randint(0, len(names))]}.{randint.randint(min, max)}@'\
+     f'{create_str()}.{domains[randint.randint(0, len(domains))]}'
+    return my_email
+
+e_mail = create_email(names, domains)
 print(e_mail)
 
 
 ##2
 
 
-import string
-import random
-min_len = 100
-max_len = 110
-digits = string.digits
-def create_random_str(min_len, max_len):
+def create_random_str(min_1, max_2):
     my_string = string.ascii_lowercase
-    count = random.randint(min_len, max_len)
-    return my_string * count
+    count = randint.randint(min_1, max_2)
+    random_str = "".join(randint.choice(my_string) for i in range(count))
+    return random_str
+new_str = create_random_str(0, 100)
+
 
 
 ##3
 
-
-
 def create_space(rand_str):
     index = 0
     rand_str_to_list = list(rand_str)
-    condition = True
-    while condition:
-        step = random.randint(1, 10)
+    while True:
+        step = randint.randint(1, 10)
         index += step
         if index < len(rand_str):
             rand_str_to_list[index] = " "
         else:
-            condition = False
+            break
     rand_str = "".join(rand_str_to_list)
 
     return rand_str
 
-def modify_word(word, elements_upd=0.3):
-    if random.random() < elements_upd:
+def modify_word(word, elements_upd=0.5):
+    if randint.random() < elements_upd:
         word = word.capitalize()
-    if random.random() < elements_upd:
+    if randint.random() < elements_upd:
         word += ","
-    if random.random() < elements_upd:
-        word += '. \n'
+    if randint.random() < elements_upd:
+        word += '.\n'
     return word
 
-def add_digits(word, elements_upd = 0.5):
-    if random.randint(3, 100) < elements_upd:
+def add_digits(word, elements_upd = 10):
+    if randint.randint(1, 70) < elements_upd:
         my_word = list(word)
         my_word.clear()
         for symbol in range(len(word)):
-            my_word.append(str(random.randint(3, 100)))
+            my_word.append(str(randint.randint(1, 70)))
         word = ' '.join(my_word)
     return word
 
@@ -79,6 +86,7 @@ rand_str = create_space(rand_str)
 rand_str = modify_str(rand_str)
 rand_str = add_digits(rand_str)
 print(rand_str)
+
 
 
 
