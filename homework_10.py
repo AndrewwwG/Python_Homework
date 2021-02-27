@@ -72,7 +72,7 @@ def write_file(filename, data):
     elif extension == 'csv':
         write_file_csv(filename, data)
     else:
-        "Unsupported file format"
+        raise Exception("Unsupported file format")
 
 
 data = [{'name': 'Pablo', 'age': 8},
