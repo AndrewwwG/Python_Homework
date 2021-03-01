@@ -17,17 +17,27 @@ data = read_json("11_json.json")
 
 ##2
 
+# первый вариант (выводит фамилии, даты и текст)
 
-def sort_by_surname(sort_surnames):
-    sort_surnames["name"] = sort_surnames["name"].split()
-    return sort_surnames["name"]
+def sort_by_surname(data):
+    data["name"] = data["name"].split()[-1]
+    return data["name"]
 
 
 data = sorted(data, key=sort_by_surname)
-
 for i in range(9):
-    data[i]["name"] = ''.join(data[i]["name"][-1])
-    print(data[i]["name"])
+    print(data[i])
+
+
+# второй вариант (выводит только фамилии)
+
+def sort_by_surname(data):
+    return data["name"]
+
+
+data = sorted(data, key=sort_by_surname)
+for i in range(9):
+    print(data[i]["name"].split()[-1])
 
 
 ##3
