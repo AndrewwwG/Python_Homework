@@ -56,11 +56,12 @@ for i in range(9):
 
 ##4
 
+def sort_by_len_words(data):
+    words = data["text"]
+    words = words.split()
+    len_words = len(words)
+    return len_words
 
-def sort_by_len(len_text):
-    return len(len_text["text"])
 
-
-data = sorted(data, key=sort_by_len)
-for i in range(9):
-    print(data[i]["text"], "\n")
+sort_data_by_words = sorted(data, key=sort_by_len_words)
+print(sort_data_by_words)
